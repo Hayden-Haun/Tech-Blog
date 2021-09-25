@@ -1,24 +1,42 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  const email = document.querySelector('#email-login').value.trim();
-  const password = document.querySelector('#password-login').value.trim();
+  const email = document.querySelector("#email-login").value.trim();
+  const password = document.querySelector("#password-login").value.trim();
 
   if (email && password) {
-    const response = await fetch('/api/users/login', {
-      method: 'POST',
+    const response = await fetch("/api/users/login", {
+      method: "POST",
       body: JSON.stringify({ email, password }),
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace("/");
     } else {
-      alert('Failed to log in');
+      alert("Failed to log in");
     }
   }
 };
 
+const renderCreateAccount = () => {
+  // event.preventDefault();
+  alert("WORKING!!!");
+  console.log("WORKING!!!!!!!!");
+};
+
+document.querySelector(".inputBtn").addEventListener("click", loginFormHandler);
+
+document.querySelector("#loginNav").addEventListener("click", loginFormHandler);
+
 document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+  .querySelector(".createBtn")
+  .addEventListener("click", renderCreateAccount);
+
+// document
+//   .querySelector(".dashboardNav")
+//   .addEventListener("click", renderCreateAccount);
+
+// document
+//   .getElementById("createBtn")
+//   .addEventListener("click", renderCreateAccount, false);
