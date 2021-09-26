@@ -26,6 +26,11 @@ const userData = [
     email: "smartiePants@comcast.com",
     password: "password123",
   },
+  {
+    username: "ADMIN-HaydenHaun",
+    email: "haydenhaun@gmail.com",
+    password: "password123",
+  },
 ];
 
 const seedUser = () => User.bulkCreate(userData);
