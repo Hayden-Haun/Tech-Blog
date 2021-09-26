@@ -6,12 +6,9 @@ const createNewPost = async (event) => {
   const post_text = document.querySelector("#post_text_input").value.trim();
 
   //Need to update to pull req.session.user_id
-  const newAuthorId = 7;
+  const post_author = 7;
 
-  console.log(newTitle);
-  console.log(newText);
-
-  if (newTitle && newText) {
+  if (post_title && post_text) {
     const response = await fetch("api/posts/new", {
       method: "POST",
       body: JSON.stringify({ post_title, post_author, post_text }),
