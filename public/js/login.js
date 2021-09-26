@@ -19,7 +19,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
-const renderCreateAccount = () => {
+const renderCreateAccount = (event) => {
   // event.preventDefault();
   alert("WORKING!!!");
   console.log("WORKING!!!!!!!!");
@@ -27,11 +27,11 @@ const renderCreateAccount = () => {
 
 document.querySelector(".inputBtn").addEventListener("click", loginFormHandler);
 
-document.querySelector("#loginNav").addEventListener("click", loginFormHandler);
-
 document
-  .querySelector(".createBtn")
+  .getElementById("createBtn")
   .addEventListener("click", renderCreateAccount);
+
+document.querySelector(".loginNav").addEventListener("click", loginFormHandler);
 
 // document
 //   .querySelector(".dashboardNav")
