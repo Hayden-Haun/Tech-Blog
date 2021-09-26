@@ -19,10 +19,20 @@ const loginFormHandler = async (event) => {
   }
 };
 
-const renderCreateAccount = (event) => {
+const renderCreateAccount = async (event) => {
   // event.preventDefault();
   alert("WORKING!!!");
   console.log("WORKING!!!!!!!!");
+
+  const response = await fetch("/create", {
+    method: "GET",
+  });
+
+  if (response.ok) {
+    document.location.replace("/create");
+  } else {
+    alert("Failed");
+  }
 };
 
 document.querySelector(".inputBtn").addEventListener("click", loginFormHandler);
