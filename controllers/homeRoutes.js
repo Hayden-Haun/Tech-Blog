@@ -31,7 +31,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-//  --- CREATE Route ---
+//  --- CREATE ACCOUNT Route ---
 router.get("/create", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
@@ -41,15 +41,14 @@ router.get("/create", (req, res) => {
   res.render("create");
 });
 
-// --- Create post route to render the input form page
-
-router.get("/createPost", (req, res) => {
+//  --- CREATE POST Route ---
+router.get("/createpost", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/createpost");
+    res.render("createpost");
     return;
   }
 
-  res.render("login");
+  res.render("/");
 });
 
 module.exports = router;

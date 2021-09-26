@@ -13,9 +13,11 @@ const renderHomePage = async (event) => {
 
 const renderPostCreatePage = async (event) => {
   event.preventDefault();
-  const response = await fetch("/api/posts/create", {
+  const response = await fetch("/createpost", {
     method: "GET",
   });
+
+  //   console.log(response);
 
   if (response.ok) {
     document.location.replace("/createpost");
