@@ -20,10 +20,6 @@ const loginFormHandler = async (event) => {
 };
 
 const renderCreateAccount = async (event) => {
-  // event.preventDefault();
-  alert("WORKING!!!");
-  console.log("WORKING!!!!!!!!");
-
   const response = await fetch("/create", {
     method: "GET",
   });

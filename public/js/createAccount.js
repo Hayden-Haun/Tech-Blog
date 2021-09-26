@@ -1,6 +1,4 @@
 const renderLogin = async (event) => {
-  //   alert("WORKING!!!");
-
   const response = await fetch("/login", {
     method: "GET",
   });
@@ -13,3 +11,5 @@ const renderLogin = async (event) => {
 };
 
 document.querySelector(".loginBtn").addEventListener("click", renderLogin);
+
+document.querySelector(".createBtn").addEventListener("click", create);
