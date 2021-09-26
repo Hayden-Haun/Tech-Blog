@@ -42,11 +42,3 @@ document
   .addEventListener("click", renderCreateAccount);
 
 document.querySelector(".loginNav").addEventListener("click", loginFormHandler);
-
-// document
-//   .querySelector(".dashboardNav")
-//   .addEventListener("click", renderCreateAccount);
-
-// document
-//   .getElementById("createBtn")
-//   .addEventListener("click", renderCreateAccount, false);
