@@ -1,4 +1,6 @@
 const User = require("./User");
+const Post = require("./Post");
+const Comment = require("./Comment");
 
 //create relationships between data
 
@@ -13,4 +15,4 @@ const User = require("./User");
 //  ---see nav links to the homepage, dashboard, and the option to log-out
 //
 
-module.exports = { User };
+module.exports = { User, Post };
