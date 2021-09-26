@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+let global_user_id;
 //  --- Create route to add new user in DB and log in --- api/users/create
 router.post("/create", async (req, res) => {
   try {
@@ -11,8 +12,11 @@ router.post("/create", async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.user_id = newUser.id;
+      req.session.userId = newUser.id;
       req.session.logged_in = true;
+
+      // console.log(req.session);
+
       res.status(200).json(newUser);
     });
   } catch (err) {
@@ -43,8 +47,10 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.userId = userData.id;
       req.session.logged_in = true;
+
+      console.log(req.session);
 
       res.json({ user: userData, message: "You are now logged in!" });
     });
