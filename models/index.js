@@ -15,4 +15,4 @@ const Comment = require("./Comment");
 //  ---see nav links to the homepage, dashboard, and the option to log-out
 //
 
-module.exports = { User, Post };
+module.exports = { User, Post, Comment };
