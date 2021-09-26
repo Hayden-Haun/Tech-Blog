@@ -9,12 +9,15 @@ router.post("/create", async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
-
+    console.log("WORKING!");
     req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res.status(200).json(newUser);
-      alert("USER POST ROUTE WORKING");
+      req.session.user_id = newUser.id;
+      req.session.logged_in = true;
+      console.log("WORKING!");
+      res.json(newUser);
+      // res
+      //   .status(200)
+      //   .json({ user: userData, message: "You are now logged in!" });
     });
   } catch (err) {
     console.log(err);

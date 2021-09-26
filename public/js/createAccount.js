@@ -22,7 +22,6 @@ const createAccountHandler = async (event) => {
   console.log(password);
 
   if (username && email && password) {
-    alert("IF STATEMENT WORKING");
     const response = await fetch("/api/users/create", {
       method: "POST",
       body: JSON.stringify({ username, email, password }),
@@ -30,6 +29,7 @@ const createAccountHandler = async (event) => {
     });
 
     if (response.ok) {
+      console.log("response ok");
       document.location.replace("/");
     } else {
       alert("Failed to sign up.");
