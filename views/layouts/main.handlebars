@@ -33,10 +33,10 @@
             <a class="nav-link" href="">Home<span class="sr-only"></span></a>
           </li>
           <li class="nav-item dashboardNav">
-            <a class="nav-link" href="">Dashboard</a>
+            <a class="nav-link" href="">Create a Post </a>
           </li>
           {{#if logged_in}}
-            <li class="nav-item logoutNav">
+            <li class="nav-item logoutNav" id="logout">
               <a class="nav-link" href="">Logout</a>
             </li>
           {{/if}}
@@ -48,12 +48,6 @@
         </ul>
       </div>
     </nav>
-
-    {{#if logged_in}}
-      <nav>
-        <button class="btn" id="logout">Logout</button>
-      </nav>
-    {{/if}}
 
     <!-- MAIN CONTENT -->
     <main
