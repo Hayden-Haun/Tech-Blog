@@ -1,19 +1,19 @@
 const router = require("express").Router();
-const { User } = require("../models");
+const { User, Post, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
-// HOME ROUTE - localhost3001/
+// homepage will display all routes if user is logged in
 router.get("/", withAuth, async (req, res) => {
   try {
-    const userData = await User.findAll({
-      attributes: { exclude: ["password"] },
-      order: [["username", "ASC"]],
+    const postData = await Post.findAll({
+      include: [User, Comment],
     });
 
-    const users = userData.map((project) => project.get({ plain: true }));
+    const posts = postData.map((project) => project.get({ plain: true }));
+    console.log(posts);
 
-    res.render("homepage", {
-      users,
+    res.render("postpage", {
+      posts,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -42,3 +42,24 @@ router.get("/create", (req, res) => {
 });
 
 module.exports = router;
+
+// HOME ROUTE - localhost3001/
+// OG HOME ROUTE to GET ALL USER DATA .....
+// router.get("/", withAuth, async (req, res) => {
+//   try {
+//     const userData = await User.findAll({
+//       attributes: { exclude: ["password"] },
+//       order: [["username", "ASC"]],
+//     });
+
+//     const users = userData.map((project) => project.get({ plain: true }));
+
+//     res.render("homepage", {
+//       users,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+//  .......

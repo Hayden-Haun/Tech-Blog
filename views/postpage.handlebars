@@ -1,0 +1,41 @@
+{{! GET EACH POST and DISPLAY to the page }}
+<div class="mt-3 text-center">
+  <h1>Tech Blog!</h1>
+</div>
+
+{{#each posts as |post|}}
+  <div class="card m-2" style="width: 80vw">
+    <div class="card-header"><strong>{{post.post_title}}</strong></div>
+    <div class="card-body">
+      <p class="card-text">
+        {{post.post_text}}
+      </p>
+      <a href="#" class="btn btn-primary">Comments</a>
+    </div>
+  </div>
+
+{{/each}}
+
+{{! <!-- CARD 1 -->
+<div class="card m-5" style="width: 80vw">
+  <div class="card-header"><strong>MVC Model</strong></div>
+  <div class="card-body">
+    <p class="card-text">
+      This is a type of web development structure, and it is great! It helps you
+      organize your code and modularize your site.
+    </p>
+    <a href="#" class="btn btn-primary">Comment</a>
+  </div>
+</div>
+
+<!-- CARD 2 -->
+<div class="card m-2" style="width: 80vw">
+  <div class="card-header"><strong>MVC Model</strong></div>
+  <div class="card-body">
+    <p class="card-text">
+      This is a type of web development structure, and it is great! It helps you
+      organize your code and modularize your site.
+    </p>
+    <a href="#" class="btn btn-primary">Comment</a>
+  </div>
+</div> }}
