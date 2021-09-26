@@ -5,7 +5,7 @@ const renderHomePage = async (event) => {
   });
 
   if (response.ok) {
-    document.location.replace("/postpage");
+    document.location.replace("/");
   } else {
     alert("failed");
   }
