@@ -1,4 +1,3 @@
-const { getMaxListeners, mainModule } = require("process");
 const { User } = require("../models");
 
 const userData = [
@@ -13,22 +12,22 @@ const userData = [
     password: "password123",
   },
   {
-    username: "smartGuy25",
-    email: "smartGuy25@gmail.com",
+    username: "cats_rule_dude",
+    email: "catsrule@comcast.net",
     password: "password123",
   },
   {
-    username: "smartGuy25",
-    email: "smartGuy25@gmail.com",
+    username: "wizzzard",
+    email: "wizzzard@gmail.com",
     password: "password123",
   },
   {
-    username: "smartGuy25",
-    email: "smartGuy25@gmail.com",
+    username: "smartiePants",
+    email: "smartiePants@comcast.com",
     password: "password123",
   },
 ];
 
-const seedUser = () => Category.bulkCreate(userData);
+const seedUser = () => User.bulkCreate(userData);
 
 module.exports = seedUser;
