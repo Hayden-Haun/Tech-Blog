@@ -10,7 +10,7 @@ router.get("/", withAuth, async (req, res) => {
     });
 
     const posts = postData.map((project) => project.get({ plain: true }));
-    console.log(posts);
+    // console.log(posts);
 
     res.render("postpage", {
       posts,

@@ -10,7 +10,11 @@
 
     <strong class=""><h3>Topic:</h3></strong>
     <div class="form-group">
-      <textarea class="form-control mt-3" id="post_title" rows="1"></textarea>
+      <textarea
+        class="form-control mt-3"
+        id="post_title_input"
+        rows="1"
+      ></textarea>
     </div>
   </div>
   <div
@@ -23,12 +27,14 @@
     <div class="form-group">
       <textarea
         class="form-control"
-        id="post_text"
+        id="post_text_input"
         rows="5"
         ,
         style="width:48vw"
       ></textarea>
     </div>
-    <a href="#" class="btn btn-dark mt-3">Submit</a>
+    <a href="" class="btn btn-dark mt-3 submitPostBtn">Submit</a>
   </div>
 </div>
+
+<script src="/js/createPost.js"></script>
