@@ -16,7 +16,7 @@ const createNewPost = async (event) => {
     });
 
     if (response.ok) {
-      alert("reponse ok ");
+      //   alert("reponse ok ");
       document.location.replace("/");
     } else {
       alert("failed");

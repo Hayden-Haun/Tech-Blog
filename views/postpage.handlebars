@@ -14,10 +14,14 @@
       class="card-body bg-muted d-flex flex-column justify-content-center align-items-center"
       style="width: 48vw"
     >
-      <p class="card-text" stlye="text-align:left">
+      <p class="card-text" style="text-align:left">
         {{post.post_text}}
       </p>
-      <a href="#" class="btn btn-dark">Comments</a>
+      <a
+        href="#"
+        class="btn btn-dark viewCommentsButton"
+        id="{{post.post_id}}"
+      >Comments</a>
     </div>
   </div>
 
