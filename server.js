@@ -11,15 +11,18 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({ helpers });
-
 const sess = {
+  resave: true,
   secret: "Super secret secret",
   // user will stay logged in for 30 minutes
   cookie: {
-    maxAge: 1000 * 60 * 30,
+    cookieName: "session",
+    maxAge: 30 * 60 * 1000,
+    duration: 15 * 60 * 1000,
+    activeDuration: 1000 * 60 * 5,
+    secure: false,
   },
-  resave: false,
+
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize,
@@ -27,6 +30,8 @@ const sess = {
 };
 
 app.use(session(sess));
+
+const hbs = exphbs.create({ helpers });
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
