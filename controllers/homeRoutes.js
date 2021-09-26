@@ -41,6 +41,17 @@ router.get("/create", (req, res) => {
   res.render("create");
 });
 
+// --- Create post route to render the input form page
+
+router.get("/createPost", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/createpost");
+    return;
+  }
+
+  res.render("login");
+});
+
 module.exports = router;
 
 // HOME ROUTE - localhost3001/
