@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User } = require("../models");
 const withAuth = require("../utils/auth");
 
+// HOME ROUTE - localhost3001/
 router.get("/", withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
@@ -20,6 +21,7 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
+//  --- LOGIN Route - localhost/login
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
@@ -29,6 +31,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+//  --- CREATE Route ---
 router.get("/create", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
