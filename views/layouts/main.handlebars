@@ -29,10 +29,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="">Home<span class="sr-only"></span></a>
+          <li class="nav-item active" id="homeBtn">
+            <a class="nav-link" href="">Home
+              <span class="sr-only"></span></a>
           </li>
-          <li class="nav-item dashboardNav">
+          <li class="nav-item" id="createPostBtn">
             <a class="nav-link" href="">Create a Post </a>
           </li>
           {{#if logged_in}}
