@@ -6,27 +6,27 @@ class Comment extends Model {}
 
 Comment.init(
   {
-    id: {
+    comment_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    parent_post: {
+    comment_parent_post: {
       type: DataTypes.INTEGER,
       references: {
         model: "post",
         key: "id",
       },
     },
-    parent_author: {
+    comment_author: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",
         key: "id",
       },
     },
-    text: {
+    comment_text: {
       type: DataTypes.STRING(500),
       allowNull: false,
     },
@@ -39,3 +39,5 @@ Comment.init(
     modelName: "comment",
   }
 );
+
+module.exports = Comment;

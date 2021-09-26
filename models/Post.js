@@ -6,24 +6,24 @@ class Post extends Model {}
 
 Post.init(
   {
-    id: {
+    post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    post_title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    author: {
-      type: DataTypes.STRING(50),
+    post_author: {
+      type: DataTypes.INTEGER,
       references: {
         model: "user",
         key: "id",
       },
     },
-    text: {
+    post_text: {
       type: DataTypes.STRING(1000),
       allowNull: false,
     },
