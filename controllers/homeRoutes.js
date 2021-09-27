@@ -41,10 +41,9 @@ router.get("/create", (req, res) => {
   res.render("create");
 });
 
-//  --- CREATE POST Route ---
-router.get("/createpost", (req, res) => {
+//  --- CREATE a NEW POST Route ---
+router.get("/createpost", async (req, res) => {
   if (req.session.logged_in) {
-    // req.session.logged_in = true;
     res.render("createpost", {
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,

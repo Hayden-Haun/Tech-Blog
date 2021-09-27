@@ -37,6 +37,7 @@ router.post("/new", async (req, res) => {
   }
 });
 
+//Returns data for a particular post with comments
 // --- /api/posts/:post_id
 router.get("/:id", async (req, res) => {
   try {
@@ -49,7 +50,12 @@ router.get("/:id", async (req, res) => {
       return;
     }
 
-    res.status(200).json(postData);
+    // res.status(200).json(postData);
+    res.render("commentview", {
+      Post,
+      User,
+      Comment,
+    });
   } catch {
     res.status(500).json(err);
   }
