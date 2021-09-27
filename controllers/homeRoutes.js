@@ -44,7 +44,10 @@ router.get("/create", (req, res) => {
 //  --- CREATE POST Route ---
 router.get("/createpost", (req, res) => {
   if (req.session.logged_in) {
-    res.render("createpost");
+    // req.session.logged_in = true;
+    res.render("createpost", {
+      logged_in: req.session.logged_in,
+    });
     return;
   }
 
