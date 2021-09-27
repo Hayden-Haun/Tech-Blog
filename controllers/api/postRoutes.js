@@ -56,6 +56,13 @@ router.get("/:id", async (req, res) => {
     // console.log(posts);
     // console.log(commentArray);
 
+    // const commentAuthors = commentArray.map((commentAuthor) => {
+    //   console.log(commentAuthor);
+    //   commentAuthor.get({ plain: true });
+    // });
+
+    // console.log(commentAuthors);
+
     // console.log(post_title);
     // console.log(post_author);
     // console.log(post_text);
@@ -67,8 +74,7 @@ router.get("/:id", async (req, res) => {
       console.log(postName instanceof User); // true
       console.log(postName.username); // 'My Title'
     }
-
-    postAuthor = postName.username;
+    const postAuthor = postName.username;
 
     if (!postName) {
       res.status(404).json({ message: "No post with this id!" });
@@ -76,15 +82,15 @@ router.get("/:id", async (req, res) => {
     }
 
     // console.log(commentArray);
-    // res.status(200).json(postData);
-    res.render("commentview", {
-      post_title,
-      post_text,
-      postAuthor,
-      user,
-      commentArray,
-    });
-  } catch {
+    res.status(200).json(postData);
+    // res.render("commentview", {
+    //   post_title,
+    //   post_text,
+    //   postAuthor,
+    //   user,
+    //   commentArray,
+    // });
+  } catch (err) {
     res.status(500).json(err);
   }
 });
