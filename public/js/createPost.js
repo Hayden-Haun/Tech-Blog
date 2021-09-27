@@ -6,8 +6,8 @@ const createNewPost = async (event) => {
   const post_text = document.querySelector("#post_text_input").value.trim();
 
   // *******************
-  //Need to update to pull req.session.user_id
-  const post_author = 7;
+  // Need to update to pull req.session.user_id
+  const post_author = 20;
 
   if (post_title && post_text) {
     const response = await fetch("api/posts/new", {

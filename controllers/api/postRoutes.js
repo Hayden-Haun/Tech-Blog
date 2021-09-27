@@ -26,7 +26,7 @@ router.post("/new", async (req, res) => {
 
     const newPost = await Post.create({
       post_title: req.body.post_title,
-      post_author: req.body.post_author,
+      post_author: req.session.user_id,
       post_text: req.body.post_text,
     });
 
