@@ -22,6 +22,19 @@ const renderPostCreatePage = async (event) => {
   if (response.ok) {
     document.location.replace("/createpost");
   } else {
+    alert("Please login");
+  }
+};
+
+const renderLoginPage = async (event) => {
+  event.preventDefault();
+  const response = await fetch("/login", {
+    method: "GET",
+  });
+
+  if (response.ok) {
+    document.location.replace("/login");
+  } else {
     alert("Failed");
   }
 };
@@ -33,3 +46,5 @@ document.getElementById("homeBtn").addEventListener("click", renderHomePage);
 document
   .getElementById("createPostBtn")
   .addEventListener("click", renderPostCreatePage);
+
+document.getElementById("login").addEventListener("click", renderLoginPage);

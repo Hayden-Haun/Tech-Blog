@@ -3,7 +3,7 @@ const { User, Post, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 // homepage will display all routes if user is logged in
-router.get("/", withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
       include: [User, Comment],
