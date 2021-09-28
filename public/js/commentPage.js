@@ -1,4 +1,4 @@
-const createNewComment = (event) => {
+const createNewComment = async (event) => {
   event.preventDefault();
   //   alert(event.target.id);
   const comment_parent_post = event.target.id;
@@ -6,7 +6,7 @@ const createNewComment = (event) => {
   const comment_text = document.querySelector("#newComment").value.trim();
 
   if (comment_text) {
-    const response = await fetch("api/comments/new", {
+    const response = await fetch("/api/comments/new", {
       method: "POST",
       body: JSON.stringify({
         comment_parent_post,
@@ -17,6 +17,7 @@ const createNewComment = (event) => {
     });
 
     if (response.ok) {
+      //   alert("working");
       document.location.replace(`/api/posts/${event.target.id}`);
     } else {
       alert("FAILED");
