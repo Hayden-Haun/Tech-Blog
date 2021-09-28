@@ -27,5 +27,24 @@
         </div>
       </div>
     {{/each}}
+    <div class="card bg-dark text-muted mt-3" style="width: 44vw">
+      <h5 class="card-header bg-light text-dark" style="font-size:14px">Add a
+        comment below</h5>
+      <div class="card-body d-flex flex-column justify-content-center align-items-center">
+        <div class="form-group">
+          <textarea class="form-control" id="newComment" rows="2" style="width: 42vw"></textarea>
+        </div>
+        <a
+        href="#"
+        class="btn btn-light text-dark viewCommentsButton mt-2"
+        style="width:25vw"
+        id="{{post.post_id}}"
+        >Submit Comment</a>
+      </div>
+
+      </div>
+
+    </div>
+
   </div>
 </div>
