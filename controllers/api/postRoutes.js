@@ -69,7 +69,7 @@ router.get("/:id", async (req, res) => {
       return { author: value, text: commentArray[index].comment_text };
     });
 
-    console.log(commentData);
+    // console.log(commentData);
 
     const postName = await User.findOne({ where: { id: post_author } });
     const postAuthor = postName.username;
@@ -86,6 +86,7 @@ router.get("/:id", async (req, res) => {
       postAuthor,
       user,
       commentData,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
