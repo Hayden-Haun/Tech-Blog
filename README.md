@@ -19,32 +19,32 @@ REPOSITORY: https://github.com/Hayden-Haun/Tech-Blog
 
 ## Description
 
-    This is a social media application to discuss technology! Before creating an account or logging in, you can view existing blog posts and their comments. Once you login, you can create a new blog post and comment on other posts.
+This is a social media application to discuss technology! Before creating an account or logging in, you can view existing blog posts and their comments. Once you login, you can create a new blog post and comment on other posts.
 
 ## Installation
 
-    npm i
+npm i
 
 ## Contributions
 
-    Contact the owner
+Contact the owner
 
 ## Usage
 
-    Launch Server: node server.js Seed Database: npm run seed
+Launch Server: node server.js Seed Database: npm run seed
 
 ## Tests
 
-    none
+none
 
 ## Technologies Used
 
-    Handlebars, Javascript, mySql, Sequelize, Express.js, bcrypt, User Authentication, req.sessions Node.JS, JAWS_DB, Heroku
+Handlebars, Javascript, mySql, Sequelize, Express.js, bcrypt, User Authentication, req.sessions Node.JS, JAWS_DB, Heroku
 
 ## Credits
 
-    Hayden Haun
+Hayden Haun
 
 ## Questions
 
-    For additional questions, please contact GitHub user Hayden-Haun at haydenhaun@gmail.com
+For additional questions, please contact GitHub user Hayden-Haun at haydenhaun@gmail.com
