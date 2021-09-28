@@ -6,34 +6,26 @@
   class="card m-2 d-flex flex-column justify-content-center align-items-center"
   style="width: 50vw"
 >
-  <div class="card-header bg-info text-center" style="width: 50vw"><strong
-    >{{post_title}}</strong></div>
+
+  <div class="card-header bg-info text-center" style="width: 50vw"><strong>
+      {{post_title}}</strong>
+  </div>
   <div
     class="card-body bg-muted d-flex flex-column justify-content-center align-items-center"
     style="width: 48vw"
   >
+    <p>Author: {{postAuthor}}</p>
     <p class="card-text" style="text-align:left">
       {{post_text}}
     </p>
-    <p class="card-text" style="text-align:left">
-      {{postAuthor}}
-    </p>
-    <h3>Comments</h3>
+    <h3 style="font-size:20px"><strong>Comments</strong></h3>
+    {{#each commentData as |comment|}}
+      <div class="card bg-muted text-muted mt-2" style="width: 44vw">
+        <h5 class="card-header" style="font-size:14px">{{comment.author}}</h5>
+        <div class="card-body">
+          <p class="card-text" style="font-size:12px">{{comment.text}}</p>
+        </div>
+      </div>
+    {{/each}}
   </div>
-
-  <div>{{user.user_id}}</div>
-
-  {{!-- {{#each commentAuthorNames as |commentAuthor|}}
-    <div>{{commentAuthor}}</div>
-  {{/each}}
-
-  {{#each commentArray as |comment|}}
-    <div>{{comment.comment_text}}</div>
-  {{/each}} --}}
-
-  {{#each commentData as |comment|}}
-    <div>Author: {{comment.author}}</div>
-    <div>Review: {{comment.text}}</div>
-  {{/each}}
-
 </div>
