@@ -45,7 +45,8 @@ router.get("/:id", async (req, res) => {
       include: [User, Comment],
     });
 
-    const { comments, user, post_title, post_text, post_author } = postData;
+    const { comments, user, post_title, post_text, post_author, post_id } =
+      postData;
 
     // This set of code creates two arrays: one for each comment and another for each comment author
     const commentArray = comments.map((data) => data.get({ plain: true }));
@@ -86,6 +87,7 @@ router.get("/:id", async (req, res) => {
       postAuthor,
       user,
       commentData,
+      post_id,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
