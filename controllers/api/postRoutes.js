@@ -64,18 +64,12 @@ router.get("/:id", async (req, res) => {
 
     console.log(commentAuthorNames);
 
-    // console.log(commentAuthors);
-    // console.log(commentArray);
-    // const commentAuthors = commentArray.map((commentAuthor) => {
-    //   // console.log(commentAuthor);
-    //   commentAuthor.get({ plain: true });
-    // });
+    //combine the array of authors and reviews into a new array of objects to pass through to the handlebars and render in correct order with #each method
+    const commentData = commentAuthorNames.map(function (value, index) {
+      return { author: value, text: commentArray[index].comment_text };
+    });
 
-    // const commentAuthors = commentArray.map((data) => {
-    //   data.get();
-    // });
-
-    // console.log(commentAuthors);
+    console.log(commentData);
 
     const postName = await User.findOne({ where: { id: post_author } });
     const postAuthor = postName.username;
@@ -91,8 +85,7 @@ router.get("/:id", async (req, res) => {
       post_text,
       postAuthor,
       user,
-      commentArray,
-      commentAuthorNames,
+      commentData,
     });
   } catch (err) {
     res.status(500).json(err);

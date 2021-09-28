@@ -18,16 +18,22 @@
     <p class="card-text" style="text-align:left">
       {{postAuthor}}
     </p>
-    <a href="#" class="btn btn-dark viewCommentsButton">Comments</a>
+    <h3>Comments</h3>
   </div>
 
   <div>{{user.user_id}}</div>
 
-  {{!-- <div>{{commentArray}}</div> --}}
+  {{!-- {{#each commentAuthorNames as |commentAuthor|}}
+    <div>{{commentAuthor}}</div>
+  {{/each}}
 
   {{#each commentArray as |comment|}}
-    <div>{{comment.comment_author}}</div>
     <div>{{comment.comment_text}}</div>
+  {{/each}} --}}
+
+  {{#each commentData as |comment|}}
+    <div>Author: {{comment.author}}</div>
+    <div>Review: {{comment.text}}</div>
   {{/each}}
 
 </div>
