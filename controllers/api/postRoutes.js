@@ -45,35 +45,28 @@ router.get("/:id", async (req, res) => {
       include: [User, Comment],
     });
 
-    // console.log(postData.comments);
-
     const { comments, user, post_title, post_text, post_author } = postData;
-    // console.log(comments);
-    // console.log(user);
 
     const commentArray = comments.map((data) => data.get({ plain: true }));
-    // const { posts } = postData
-    // console.log(posts);
-    // console.log(commentArray);
 
+    const commentAuthors = commentArray.map(function (el) {
+      return el.comment_author;
+    });
+
+    console.log(commentAuthors);
+    // console.log(commentArray);
     // const commentAuthors = commentArray.map((commentAuthor) => {
-    //   console.log(commentAuthor);
+    //   // console.log(commentAuthor);
     //   commentAuthor.get({ plain: true });
+    // });
+
+    // const commentAuthors = commentArray.map((data) => {
+    //   data.get();
     // });
 
     // console.log(commentAuthors);
 
-    // console.log(post_title);
-    // console.log(post_author);
-    // console.log(post_text);
-
     const postName = await User.findOne({ where: { id: post_author } });
-    if (postName === null) {
-      console.log("Not found!");
-    } else {
-      console.log(postName instanceof User); // true
-      console.log(postName.username); // 'My Title'
-    }
     const postAuthor = postName.username;
 
     if (!postName) {
@@ -81,15 +74,14 @@ router.get("/:id", async (req, res) => {
       return;
     }
 
-    // console.log(commentArray);
-    res.status(200).json(postData);
-    // res.render("commentview", {
-    //   post_title,
-    //   post_text,
-    //   postAuthor,
-    //   user,
-    //   commentArray,
-    // });
+    // res.status(200).json(postData);
+    res.render("commentview", {
+      post_title,
+      post_text,
+      postAuthor,
+      user,
+      commentArray,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
