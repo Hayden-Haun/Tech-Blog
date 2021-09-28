@@ -47,13 +47,24 @@ router.get("/:id", async (req, res) => {
 
     const { comments, user, post_title, post_text, post_author } = postData;
 
+    // This set of code creates two arrays: one for each comment and another for each comment author
     const commentArray = comments.map((data) => data.get({ plain: true }));
-
-    const commentAuthors = commentArray.map(function (el) {
+    const commentAuthorIds = commentArray.map(function (el) {
       return el.comment_author;
     });
 
-    console.log(commentAuthors);
+    let commentAuthorNames = [];
+    for (let i = 0; i < commentAuthorIds.length; i++) {
+      let thisAuthor = await User.findOne({
+        where: { id: commentAuthorIds[i] },
+      });
+      let { username } = thisAuthor;
+      commentAuthorNames.push(username);
+    }
+
+    console.log(commentAuthorNames);
+
+    // console.log(commentAuthors);
     // console.log(commentArray);
     // const commentAuthors = commentArray.map((commentAuthor) => {
     //   // console.log(commentAuthor);
@@ -81,6 +92,7 @@ router.get("/:id", async (req, res) => {
       postAuthor,
       user,
       commentArray,
+      commentAuthorNames,
     });
   } catch (err) {
     res.status(500).json(err);
